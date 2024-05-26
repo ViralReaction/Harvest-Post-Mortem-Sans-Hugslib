@@ -1,5 +1,4 @@
 ﻿using System;
-using HugsLib.Settings;
 using UnityEngine;
 using Verse;
 

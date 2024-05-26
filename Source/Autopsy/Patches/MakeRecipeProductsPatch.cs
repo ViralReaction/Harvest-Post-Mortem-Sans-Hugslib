@@ -22,42 +22,42 @@ namespace Autopsy
                 if (recipeDef.Equals(AutopsyRecipeDefs.AutopsyBasic))
                 {
                     recipeSettings = new RecipeInfo(
-                        Mod.BasicAutopsyOrganMaxChance.Value,
-                        Mod.BasicAutopsyCorpseAge.Value * 2500,
-                        Mod.BasicAutopsyBionicMaxChance.Value,
-                        Mod.BasicAutopsyMaxNumberOfOrgans.Value,
-                        Mod.BasicAutopsyFrozenDecay.Value);
-                    skillChance *= Mod.BasicAutopsyMedicalSkillScaling.Value;
+                        ModSettings_PostMortem.BasicAutopsyOrganMaxChance,
+                        ModSettings_PostMortem.BasicAutopsyCorpseAge * 2500,
+                        ModSettings_PostMortem.BasicAutopsyBionicMaxChance,
+                        ModSettings_PostMortem.BasicAutopsyMaxNumberOfOrgans,
+                        ModSettings_PostMortem.BasicAutopsyFrozenDecay);
+                    skillChance *= ModSettings_PostMortem.BasicAutopsyMedicalSkillScaling;
                 }
                 else if (recipeDef.Equals(AutopsyRecipeDefs.AutopsyAdvanced))
                 {
                     recipeSettings = new RecipeInfo(
-                        Mod.AdvancedAutopsyOrganMaxChance.Value,
-                        Mod.AdvancedAutopsyCorpseAge.Value * 2500,
-                        Mod.AdvancedAutopsyBionicMaxChance.Value,
-                        Mod.AdvancedAutopsyMaxNumberOfOrgans.Value,
-                        Mod.AdvancedAutopsyFrozenDecay.Value);
-                    skillChance *= Mod.AdvancedAutopsyMedicalSkillScaling.Value;
+                        ModSettings_PostMortem.AdvancedAutopsyOrganMaxChance,
+                        ModSettings_PostMortem.AdvancedAutopsyCorpseAge * 2500,
+                        ModSettings_PostMortem.AdvancedAutopsyBionicMaxChance,
+                        ModSettings_PostMortem.AdvancedAutopsyMaxNumberOfOrgans,
+                            ModSettings_PostMortem.AdvancedAutopsyFrozenDecay);
+                    skillChance *= ModSettings_PostMortem.AdvancedAutopsyMedicalSkillScaling;
                 }
                 else if (recipeDef.Equals(AutopsyRecipeDefs.AutopsyGlitterworld))
                 {
                     recipeSettings = new RecipeInfo(
-                        Mod.GlitterAutopsyOrganMaxChance.Value,
-                        Mod.GlitterAutopsyCorpseAge.Value * 2500,
-                        Mod.GlitterAutopsyBionicMaxChance.Value,
-                        Mod.GlitterAutopsyMaxNumberOfOrgans.Value,
-                        Mod.GlitterAutopsyFrozenDecay.Value);
-                    skillChance *= Mod.GlitterAutopsyMedicalSkillScaling.Value;
+                        ModSettings_PostMortem.GlitterAutopsyOrganMaxChance,
+                        ModSettings_PostMortem.GlitterAutopsyCorpseAge * 2500,
+                        ModSettings_PostMortem.GlitterAutopsyBionicMaxChance,
+                        ModSettings_PostMortem.GlitterAutopsyMaxNumberOfOrgans,
+                        ModSettings_PostMortem.GlitterAutopsyFrozenDecay);
+                    skillChance *= ModSettings_PostMortem.GlitterAutopsyMedicalSkillScaling;
                 }
                 else if (recipeDef.Equals(AutopsyRecipeDefs.AutopsyAnimal))
                 {
                     recipeSettings = new RecipeInfo(
                         0f,
                         0,
-                        Mod.AnimalAutopsyBionicMaxChance.Value,
-                        Mod.AnimalAutopsyMaxNumberOfOrgans.Value,
+                        ModSettings_PostMortem.AnimalAutopsyBionicMaxChance,
+                        ModSettings_PostMortem.AnimalAutopsyMaxNumberOfOrgans,
                         0);
-                    skillChance *= Mod.AnimalAutopsyMedicalSkillScaling.Value;
+                    skillChance *= ModSettings_PostMortem.AnimalAutopsyMedicalSkillScaling;
                 }
 
                 if (recipeSettings == null) return;

@@ -42,10 +42,10 @@ namespace Autopsy.Filters
 
         private bool CanHarvest(Corpse corpse)
         {
-            int maxage = Mathf.Max(Mod.BasicAutopsyCorpseAge.Value, Mod.AdvancedAutopsyCorpseAge.Value,
-                Mod.GlitterAutopsyCorpseAge.Value);
-            float decay = Mathf.Min(Mod.BasicAutopsyFrozenDecay.Value, Mod.AdvancedAutopsyFrozenDecay.Value,
-                Mod.GlitterAutopsyFrozenDecay.Value);
+            int maxage = Mathf.Max(ModSettings_PostMortem.BasicAutopsyCorpseAge, ModSettings_PostMortem.AdvancedAutopsyCorpseAge,
+                ModSettings_PostMortem.GlitterAutopsyCorpseAge);
+            float decay = Mathf.Min(ModSettings_PostMortem.BasicAutopsyFrozenDecay, ModSettings_PostMortem.AdvancedAutopsyFrozenDecay,
+                ModSettings_PostMortem.GlitterAutopsyFrozenDecay);
             CompRottable rot = corpse.TryGetComp<CompRottable>();
             bool notRotten = rot == null
                 ? corpse.Age <= maxage * 2500
