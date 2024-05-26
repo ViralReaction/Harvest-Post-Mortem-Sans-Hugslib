@@ -48,7 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileName.cs" />
+    <Compile Include="Widget.cs" />
+    <Compile Include="Listing_PostMortem.cs" />
     <Compile Include="ModSettings_PostMortem.cs" />
     <Compile Include="Filters\CorpseBionicFilter.cs" />
     <Compile Include="Filters\CorpseFilter.cs" />

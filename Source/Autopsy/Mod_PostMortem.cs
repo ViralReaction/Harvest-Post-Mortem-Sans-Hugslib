@@ -28,9 +28,6 @@ namespace Autopsy
         public override void WriteSettings()
         {
             base.WriteSettings();
-
-            //_extendedBillDataStorage?.UpdateAllLinkedBills();
-
         }
 
         //private readonly List<string> _tabNames = new List<string>

@@ -37,67 +37,60 @@ namespace Autopsy
 
             base.ExposeData();
         }
+        private Vector2 scrollPosition;
         public void DoSettingsWindowContents(Rect inRect)
         {
+            //Rect inner = inRect.ContractedBy(20f);
             Rect rect = new Rect(inRect.x, inRect.y, inRect.width, inRect.height);
+            rect.height = 1000f;
+            Widgets.BeginScrollView(inRect, ref this.scrollPosition, rect, true);
             Listing_PostMortem options = new Listing_PostMortem();
-            options.Begin(inRect);
+            options.Begin(rect);
             options.GapLine();
-            options.Gap();
             // Basic Autopsy
             Text.Font = GameFont.Medium;
             options.Label("autopsyBasicTab".Translate());
             Text.Font = GameFont.Small;
-            options.Gap();
             BasicAutopsyOrganMaxChance = options.CustomSliderLabel("organChanceTitle".Translate() + ":", BasicAutopsyOrganMaxChance, 0f, 1f, 0.5f, null, null, null, Math.Ceiling(BasicAutopsyOrganMaxChance * 100) + "%", 0.01f);
             BasicAutopsyBionicMaxChance = options.CustomSliderLabel("bionicChanceTitle".Translate() + ":", BasicAutopsyBionicMaxChance, 0f, 1f, 0.5f, null, null , null, Math.Ceiling(BasicAutopsyBionicMaxChance * 100) + " % ", 0.01f);
-            BasicAutopsyCorpseAge = options.CustomSliderLabelInt("numberPartsTitle".Translate() + ":", BasicAutopsyCorpseAge, 0, 100, 0.5f, null, null, null, BasicAutopsyCorpseAge.ToString(), 1);
+            BasicAutopsyCorpseAge = options.CustomSliderLabelInt("corpseAgeTitle".Translate() + ":", BasicAutopsyCorpseAge, 0, 100, 0.5f, null, null, null, BasicAutopsyCorpseAge.ToString(), 1);
             BasicAutopsyMaxNumberOfOrgans = options.CustomSliderLabelInt("numberPartsTitle".Translate() + ":", BasicAutopsyMaxNumberOfOrgans, 0, 99, 0.5f, null, null, null, BasicAutopsyMaxNumberOfOrgans.ToString(), 1);
-            BasicAutopsyMedicalSkillScaling = options.CustomSliderLabel("skillScalingTitle".Translate() + ":", BasicAutopsyMedicalSkillScaling, 0f, 1f, 0.5f, null, null, null, Math.Ceiling(BasicAutopsyMedicalSkillScaling * 100) + "%", 0.01f);
+            BasicAutopsyMedicalSkillScaling = options.CustomSliderLabel("skillScalingTitle".Translate() + ":", BasicAutopsyMedicalSkillScaling, 0f, 10f, 0.5f, null, null, null, Math.Ceiling(BasicAutopsyMedicalSkillScaling * 100) + "%", 0.01f);
             BasicAutopsyFrozenDecay = options.CustomSliderLabel("frozenDecayTitle".Translate() + ":", BasicAutopsyFrozenDecay, 0f, 1f, 0.5f, null, null, null, Math.Ceiling(BasicAutopsyFrozenDecay * 100) + " % ", 0.01f);
-            options.Gap();
             options.GapLine();
-            options.Gap();
+            
             // Advanced Autopsy
             Text.Font = GameFont.Medium;
             options.Label("autopsyAdvancedTab".Translate());
             Text.Font = GameFont.Small;
-            options.Gap();
             AdvancedAutopsyOrganMaxChance = options.CustomSliderLabel("organChanceTitle".Translate() + ":", AdvancedAutopsyOrganMaxChance, 0f, 1f, 0.5f, null, null, null, Math.Ceiling(AdvancedAutopsyOrganMaxChance * 100) + "%", 0.01f);
             AdvancedAutopsyBionicMaxChance = options.CustomSliderLabel("bionicChanceTitle".Translate() + ":", AdvancedAutopsyBionicMaxChance, 0f, 1f, 0.5f, null, null, null, Math.Ceiling(AdvancedAutopsyBionicMaxChance * 100) + " % ", 0.01f);
-            AdvancedAutopsyCorpseAge = options.CustomSliderLabelInt("numberPartsTitle".Translate() + ":", AdvancedAutopsyCorpseAge, 0, 100, 0.5f, null, null, null, AdvancedAutopsyCorpseAge.ToString(), 1);
+            AdvancedAutopsyCorpseAge = options.CustomSliderLabelInt("corpseAgeTitle".Translate() + ":", AdvancedAutopsyCorpseAge, 0, 100, 0.5f, null, null, null, AdvancedAutopsyCorpseAge.ToString(), 1);
             AdvancedAutopsyMaxNumberOfOrgans = options.CustomSliderLabelInt("numberPartsTitle".Translate() + ":", AdvancedAutopsyMaxNumberOfOrgans, 0, 99, 0.5f, null, null, null, AdvancedAutopsyMaxNumberOfOrgans.ToString(), 1);
-            AdvancedAutopsyMedicalSkillScaling = options.CustomSliderLabel("skillScalingTitle".Translate() + ":", AdvancedAutopsyMedicalSkillScaling, 0f, 1f, 0.5f, null, null, null, Math.Ceiling(AdvancedAutopsyMedicalSkillScaling * 100) + "%", 0.01f);
+            AdvancedAutopsyMedicalSkillScaling = options.CustomSliderLabel("skillScalingTitle".Translate() + ":", AdvancedAutopsyMedicalSkillScaling, 0f, 10f, 0.5f, null, null, null, Math.Ceiling(AdvancedAutopsyMedicalSkillScaling * 100) + "%", 0.01f);
             AdvancedAutopsyFrozenDecay = options.CustomSliderLabel("frozenDecayTitle".Translate() + ":", AdvancedAutopsyFrozenDecay, 0f, 1f, 0.5f, null, null, null, Math.Ceiling(AdvancedAutopsyFrozenDecay * 100) + " % ", 0.01f);
-            options.Gap();
             options.GapLine();
-            options.Gap();
             // Glitter Autopsy
             Text.Font = GameFont.Medium;
             options.Label("autopsyGlitterTab".Translate());
             Text.Font = GameFont.Small;
-            options.Gap();
             GlitterAutopsyOrganMaxChance = options.CustomSliderLabel("organChanceTitle".Translate() + ":", GlitterAutopsyOrganMaxChance, 0f, 1f, 0.5f, null, null, null, Math.Ceiling(GlitterAutopsyOrganMaxChance * 100) + "%", 0.01f);
             GlitterAutopsyBionicMaxChance = options.CustomSliderLabel("bionicChanceTitle".Translate() + ":", GlitterAutopsyBionicMaxChance, 0f, 1f, 0.5f, null, null, null, Math.Ceiling(GlitterAutopsyBionicMaxChance * 100) + " % ", 0.01f);
-            GlitterAutopsyCorpseAge = options.CustomSliderLabelInt("numberPartsTitle".Translate() + ":", GlitterAutopsyCorpseAge, 0, 100, 0.5f, null, null, null, GlitterAutopsyCorpseAge.ToString(), 1);
+            GlitterAutopsyCorpseAge = options.CustomSliderLabelInt("corpseAgeTitle".Translate() + ":", GlitterAutopsyCorpseAge, 0, 100, 0.5f, null, null, null, GlitterAutopsyCorpseAge.ToString(), 1);
             GlitterAutopsyMaxNumberOfOrgans = options.CustomSliderLabelInt("numberPartsTitle".Translate() + ":", GlitterAutopsyMaxNumberOfOrgans, 0, 99, 0.5f, null, null, null, GlitterAutopsyMaxNumberOfOrgans.ToString(), 1);
-            GlitterAutopsyMedicalSkillScaling = options.CustomSliderLabel("skillScalingTitle".Translate() + ":", GlitterAutopsyMedicalSkillScaling, 0f, 1f, 0.5f, null, null, null, Math.Ceiling(GlitterAutopsyMedicalSkillScaling * 100) + "%", 0.01f);
+            GlitterAutopsyMedicalSkillScaling = options.CustomSliderLabel("skillScalingTitle".Translate() + ":", GlitterAutopsyMedicalSkillScaling, 0f, 10f, 0.5f, null, null, null, Math.Ceiling(GlitterAutopsyMedicalSkillScaling * 100) + "%", 0.01f);
             GlitterAutopsyFrozenDecay = options.CustomSliderLabel("frozenDecayTitle".Translate() + ":", GlitterAutopsyFrozenDecay, 0f, 1f, 0.5f, null, null, null, Math.Ceiling(GlitterAutopsyFrozenDecay * 100) + " % ", 0.01f);
-            options.Gap();
             options.GapLine();
-            options.Gap();
             // Animal Autopsy
             Text.Font = GameFont.Medium;
-            options.Label("autopsyGlitterTab".Translate());
+            options.Label("Animal Autopsy");
             Text.Font = GameFont.Small;
-            options.Gap();
             AnimalAutopsyBionicMaxChance = options.CustomSliderLabel("bionicChanceTitle".Translate() + ":", AnimalAutopsyBionicMaxChance, 0f, 1f, 0.5f, null, null, null, Math.Ceiling(AnimalAutopsyBionicMaxChance * 100) + " % ", 0.01f);
             AnimalAutopsyMaxNumberOfOrgans = options.CustomSliderLabelInt("numberPartsTitle".Translate() + ":", AnimalAutopsyMaxNumberOfOrgans, 0, 99, 0.5f, null, null, null, AnimalAutopsyMaxNumberOfOrgans.ToString(), 1);
-            AnimalAutopsyMedicalSkillScaling = options.CustomSliderLabel("skillScalingTitle".Translate() + ":", AnimalAutopsyMedicalSkillScaling, 0f, 1f, 0.5f, null, null, null, Math.Ceiling(AnimalAutopsyMedicalSkillScaling * 100) + "%", 0.01f);
-            options.Gap();
+            AnimalAutopsyMedicalSkillScaling = options.CustomSliderLabel("skillScalingTitle".Translate() + ":", AnimalAutopsyMedicalSkillScaling, 0f, 10f, 0.5f, null, null, null, Math.Ceiling(AnimalAutopsyMedicalSkillScaling * 100) + "%", 0.01f);
             options.GapLine();
-            options.Gap();
             options.End();
+            Widgets.EndScrollView();
         }
 
         public static float
