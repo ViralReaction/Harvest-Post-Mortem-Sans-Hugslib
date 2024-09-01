@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Widget.cs" />
+    <Compile Include="CustomWidget.cs" />
     <Compile Include="Listing_PostMortem.cs" />
     <Compile Include="ModSettings_PostMortem.cs" />
     <Compile Include="Filters\CorpseBionicFilter.cs" />
@@ -69,7 +69,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Krafs.Rimworld.Ref">
-      <Version>1.5.4063</Version>
+      <Version>1.5.4146-beta</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
