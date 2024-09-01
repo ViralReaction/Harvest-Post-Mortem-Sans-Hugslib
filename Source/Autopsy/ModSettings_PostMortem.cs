@@ -90,6 +90,7 @@ namespace Autopsy
             AnimalAutopsyMaxNumberOfOrgans = options.CustomSliderLabelInt("numberPartsTitle".Translate() + ":", AnimalAutopsyMaxNumberOfOrgans, 0, 99, 0.5f, "numberPartsDescription".Translate(), AnimalAutopsyMaxNumberOfOrgans.ToString(), 99.ToString(), 0.ToString(), 1);
             AnimalAutopsyMedicalSkillScaling = options.CustomSliderLabel("skillScalingTitle".Translate() + ":", AnimalAutopsyMedicalSkillScaling, 0f, 10f, 0.5f, "skillScalingDescription".Translate(), (AnimalAutopsyMedicalSkillScaling * 100).ToString("F2") + "%", 10f.ToString(), 0f.ToString(), 0.01f);
             options.GapLine();
+            options.Gap();
             if (options.ButtonText("Reset to Defaults"))
             {
                 ResetSettingsToDefault();
